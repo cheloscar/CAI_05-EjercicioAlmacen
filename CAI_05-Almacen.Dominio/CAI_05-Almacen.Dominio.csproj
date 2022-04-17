@@ -35,6 +35,8 @@
     <Compile Include="Enumeradores.cs" />
     <Compile Include="Excepciones.cs" />
     <Compile Include="ProductoComestible.cs" />
+    <Compile Include="ProductoLimpieza.cs" />
+    <Compile Include="ControlStock.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

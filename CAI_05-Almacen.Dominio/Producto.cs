@@ -82,10 +82,5 @@ namespace CAI_05Almacen.Dominio
                 throw new ImposibleQuitarEstaCantidadException();
         }
         #endregion
-
-
-
-
-
     }
 }

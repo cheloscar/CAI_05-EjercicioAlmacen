@@ -4,17 +4,14 @@ namespace CAI_05Almacen.Dominio
     public class ProductoComestible : Producto
     {
         #region Variables
+        string _ingredientes;
         double _valorEnergetico;
         double _sodio;
         double _grasasSaturadas;
-        string _ingredientes;
 
         #endregion
 
         #region Propiedades
-        public double ValorEnergetico { get => _valorEnergetico; set => _valorEnergetico = value; }
-        public double Sodio { get => _sodio; set => _sodio = value; }
-        public double GrasasSaturadas { get => _grasasSaturadas; set => _grasasSaturadas = value; }
         public string Ingredientes { get => _ingredientes; set => _ingredientes = value; }
 
         #endregion
@@ -32,9 +29,9 @@ namespace CAI_05Almacen.Dominio
             : base(productoComestible.CodigoProducto, productoComestible.Marca, productoComestible.Descripcion, productoComestible.Tamaño, productoComestible.UnidadMedida, productoComestible.TipoEnvase, productoComestible.FamiliaProducto, productoComestible.CategoriaProducto, productoComestible.TipoProducto, productoComestible.StockActual, productoComestible.PuntoReposicion)
         {
             _ingredientes = productoComestible.Ingredientes;
-            _valorEnergetico = productoComestible.ValorEnergetico;
-            _sodio = productoComestible.Sodio;
-            _grasasSaturadas = productoComestible.GrasasSaturadas;
+            _valorEnergetico = productoComestible.ValorEnergetico();
+            _sodio = productoComestible.Sodio();
+            _grasasSaturadas = productoComestible.GrasasSaturadas();
         }
 
         #endregion
@@ -43,6 +40,33 @@ namespace CAI_05Almacen.Dominio
         public override string ToString()
         {
             return "Producto Comestible";
+        }
+        public void ValorEnergetico(double valor)
+        {
+            if (valor >= 0) { _valorEnergetico = valor; }
+            else { throw new NoSeAceptanValoresNegativosException(); }
+        }
+        public double ValorEnergetico()
+        {
+            return _valorEnergetico;
+        }
+        public void Sodio(double valor)
+        {
+            if (valor >= 0) { _sodio = valor; }
+            else { throw new NoSeAceptanValoresNegativosException(); }
+        }
+        public double Sodio()
+        {
+            return _sodio;
+        }
+        public void GrasasSaturadas(double valor)
+        {
+            if (valor >= 0) { _grasasSaturadas = valor; }
+            else { throw new NoSeAceptanValoresNegativosException(); }
+        }
+        public double GrasasSaturadas()
+        {
+            return _grasasSaturadas;
         }
         public bool AltoEnCalorias()
         {
